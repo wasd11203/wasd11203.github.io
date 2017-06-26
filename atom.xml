@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.gzglvcj.cn/"/>
-  <updated>2017-06-26T00:42:44.000Z</updated>
+  <updated>2017-06-26T01:48:06.000Z</updated>
   <id>http://www.gzglvcj.cn/</id>
   
   <author>
@@ -19,12 +19,13 @@
     <title></title>
     <link href="http://www.gzglvcj.cn/2017/06/26/CentOS_7_%E6%90%AD%E5%BB%BA_LNMP_%E7%8E%AF%E5%A2%83/"/>
     <id>http://www.gzglvcj.cn/2017/06/26/CentOS_7_搭建_LNMP_环境/</id>
-    <published>2017-06-26T01:09:14.961Z</published>
-    <updated>2017-06-26T00:42:44.000Z</updated>
+    <published>2017-06-26T01:48:33.778Z</published>
+    <updated>2017-06-26T01:48:06.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="CentOS-7-搭建-LNMP-环境"><a href="#CentOS-7-搭建-LNMP-环境" class="headerlink" title="CentOS 7 搭建 LNMP 环境"></a>CentOS 7 搭建 LNMP 环境</h1><p>搭建环境使用的是 在VM 中 新安装的CentOS 系统。</p>
 <h2 id="依赖安装"><a href="#依赖安装" class="headerlink" title="依赖安装"></a>依赖安装</h2><ol>
-<li>安装 Nginx 需要的依赖：  <figure class="highlight plain"><figcaption><span>-y install gcc gcc-c++ autoconf libjpeg libjpeg-devel libpng libpng-devel freetype freetype-devel libxml2 libxml2-devel zlib zlib-devel glibc glibc-devel glib2 glib2-devel bzip2 bzip2-devel ncurses ncurses-devel curl curl-devel e2fsprogs e2fsprogs-devel krb5 krb5-devel libidn libidn-devel openssl openssl-devel openldap openldap-devel nss_ldap openldap-clients openldap-servers```</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">2. 安装 PHP 需要的依赖：</div><div class="line">     ```yum install -y php php-mysql php-gd libjpeg* php-imap php-ldap php-odbc php-pear php-xml php-xmlrpc php-mbstring php-mcrypt php-bcmath php-mhash libmcrypt libmcrypt-devel php-fpm</div></pre></td></tr></table></figure>
+<li><p>安装 Nginx 需要的依赖：</p>
+  <figure class="highlight plain"><figcaption><span>-y install gcc gcc-c++ autoconf libjpeg libjpeg-devel libpng libpng-devel freetype freetype-devel libxml2 libxml2-devel zlib zlib-devel glibc glibc-devel glib2 glib2-devel bzip2 bzip2-devel ncurses ncurses-devel curl curl-devel e2fsprogs e2fsprogs-devel krb5 krb5-devel libidn libidn-devel openssl openssl-devel openldap openldap-devel nss_ldap openldap-clients openldap-servers```</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">2. 安装 PHP 需要的依赖：</div><div class="line"></div><div class="line">     ```yum install -y php php-mysql php-gd libjpeg* php-imap php-ldap php-odbc php-pear php-xml php-xmlrpc php-mbstring php-mcrypt php-bcmath php-mhash libmcrypt libmcrypt-devel php-fpm</div></pre></td></tr></table></figure>
 </li>
 </ol>
 <h2 id="软件离线包"><a href="#软件离线包" class="headerlink" title="软件离线包"></a>软件离线包</h2><ol>
@@ -37,14 +38,14 @@
 <li><p>使用命令–mkdir 新建一个software文件夹，完成之后 使用命令– cd 进入到该文件夹中</p>
 </li>
 <li><p>使用命令–rz 将软件离线包 上传到software文件夹中，完成之后，使用命令–ll 可以在看到上传的软件包</p>
-<p><img src="" alt="https://ooo.0o0.ooo/2017/06/22/594b84d12ff97.png"></p>
+<p><img src="https://ooo.0o0.ooo/2017/06/22/594b84d12ff97.png" alt="image"></p>
 </li>
 <li><p>在software 文件夹中使用tar -zvxf filename 分别对两个离线包解压，解压完成后在该文件夹中可以看到两个文件夹分别对应两个软件</p>
-<p><img src="" alt="https://ooo.0o0.ooo/2017/06/22/594b84a31010c.png"></p>
-<p><img src="" alt="https://ooo.0o0.ooo/2017/06/22/594b84d1724af.png"></p>
+<p><img src="https://ooo.0o0.ooo/2017/06/22/594b84a31010c.png" alt="image"></p>
+<p><img src="https://ooo.0o0.ooo/2017/06/22/594b84d1724af.png" alt="image"></p>
 </li>
 <li><p>进入 nginx-1.11.9 文件夹中使用命令– ./configure 软件进行配置检测，完成之后，执行make &amp; make install 命令即可进行编译安装</p>
-<p><img src="" alt="https://ooo.0o0.ooo/2017/06/22/594b84a2e22cf.png"></p>
+<p><img src="https://ooo.0o0.ooo/2017/06/22/594b84a2e22cf.png" alt="image"></p>
 </li>
 <li><p>完成nginx 安装后,退出 nginx-1.11.9 文件夹，然后进入php-7.1.5 文件夹，使用./configure 命令进行配置检测，完成之后同样执行 make &amp; make install 命令编译安装</p>
 <p>​</p>
@@ -52,24 +53,26 @@
 <li><p>安装完成后，需要暂时关闭防火墙(其实只需要开放端口即可，但是暂时直接关闭防火墙简单粗暴，在搭建完成之后，再进行防火墙的配置)<br>命令：systemctl stop firewalld.service   – 关闭防火墙</p>
 </li>
 <li><p>通过ip直接访问即可获取默认的页面</p>
-<p><img src="" alt="https://ooo.0o0.ooo/2017/06/22/594b84d1017c5.png"></p>
+<p><img src="https://ooo.0o0.ooo/2017/06/22/594b84d1017c5.png" alt="image"></p>
 <h3 id="配置-PHP"><a href="#配置-PHP" class="headerlink" title="配置 PHP"></a>配置 PHP</h3></li>
 <li><p>进入 PHP 离线包所在的文件夹 software ，进入 php-7.1.5 文件夹，将 php.ini-development 或者 php.ini-production 两个文件中的任何一个拷贝到 /user/local/php/ 目录下，并重命名为 php.ini</p>
-<p><img src="" alt="https://ooo.0o0.ooo/2017/06/22/594b84d12bbf9.png"></p>
+<p><img src="https://ooo.0o0.ooo/2017/06/22/594b84d12bbf9.png" alt="image"></p>
 </li>
 <li><p>进入/etc/php-fpm.d/目录下。修改该目录下的www.conf 文件，找到 <figure class="highlight plain"><figcaption><span>= apache与group=apache```</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">将其修改为```user = nginx group = nginx</div></pre></td></tr></table></figure></p>
-<p><img src="" alt="https://ooo.0o0.ooo/2017/06/22/594b84d12aa30.png"></p>
+<p><img src="https://ooo.0o0.ooo/2017/06/22/594b84d12aa30.png" alt="image"></p>
 </li>
 <li><p>使用命令 groupadd nginx 创建用户组之后使用 useradd -g nginx nginx 在nginx 组中添加nginx用户</p>
 </li>
-<li><p>配置 php 的环境变量：找到 /etc/ 目录下profile 文件，在该文件下追加<figure class="highlight plain"><figcaption><span>```export PATH```两行代码，保存后，执行命令--source</span><a href="/etc/profile">link</a></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">  即可。</div><div class="line"></div><div class="line">5. 启动php-fpm : 进入/usr/sbin/ 目录，执行 php-fpm 即可启动php解释器 </div><div class="line">### 配置 Nginx 支持PHP</div><div class="line">1. 将默认屏蔽的</div></pre></td></tr></table></figure></p>
-<p>  location ~ .php$ {</p>
-<pre><code>fastcgi_index   index.php;
-fastcgi_pass    127.0.0.1:9000;
-include         fastcgi_params;
-fastcgi_param   SCRIPT_FILENAME    $document_root$fastcgi_script_name;
-}<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"> </div><div class="line">释放屏蔽。之后去掉默认的location /&#123;&#125; 中的root ,在 location 外写一个root 为根目录</div><div class="line">重新启动ng即可</div><div class="line">2. 完成nginx 支持PHP。</div></pre></td></tr></table></figure>
+<li><p>配置 php 的环境变量：找到 /etc/ 目录下profile 文件，在该文件下追加<figure class="highlight plain"><figcaption><span>，```export PATH```两行代码，保存后，执行命令--source</span><a href="/etc/profile">link</a></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">  即可。</div><div class="line"></div><div class="line">5. 启动php-fpm : 进入/usr/sbin/ 目录，执行 php-fpm 即可启动php解释器 </div><div class="line">### 配置 Nginx 支持PHP</div><div class="line">1. 将下列默认屏蔽的代码释放屏蔽。之后去掉默认的location /&#123;&#125; 中的root ,在 location 外写一个root 为根目录,重新启动ng即可</div></pre></td></tr></table></figure></p>
+<pre><code>    location ~ \.php$ {
+  fastcgi_index   index.php;
+  fastcgi_pass    127.0.0.1:9000;
+  include         fastcgi_params;
+  fastcgi_param   SCRIPT_FILENAME                        $document_root$fastcgi_script_name;
+}``` 
 </code></pre></li>
+<li><p>完成nginx 支持PHP。</p>
+</li>
 </ol>
 ]]></content>
     
